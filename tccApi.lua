@@ -1,5 +1,5 @@
 function initTcc()
-  autoAssemble("loadLibrary(path\\to\\libtcc.dll)")
+  autoAssemble("loadLibrary(C:\\tcc\\libtcc.dll)")
 end
 
 outputMemory     = 1
@@ -92,12 +92,15 @@ function Tcc:addLibrary(libraryname)
   executeCodeEx(1, nil, "libtcc.tcc_add_library", self.state, libraryname)
 end
 
-function add_symbol(s, name, val, ctype)
-  val = ctype and ffi.cast(ctype, val) or val
-  return bind.tcc_add_symbol(s, name, val)
+function addSymbol(name, val)
+  return executeCodeEx(1, nil, "libtcc.tcc_add_symbol", self.state, name, val)
 end
 
 -- File name if using outputExe, outputDll or outputObj
 function Tcc:outputFile(filename)
   executeCodeEx(1, nil, "libtcc.tcc_output_file", self.state, filename)
+end
+
+function Tcc:run(argc, argv)
+  return executeCodeEx(1, nil, "libtcc.tcc_run", self.state, argc, argv)
 end
