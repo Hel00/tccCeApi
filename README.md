@@ -1,7 +1,7 @@
 # tccCeApi
 Tiny C wrapper for cheat engine's lua
 
-##Installation
+### Installation
  1. Download the [Tiny C compiler](http://download.savannah.gnu.org/releases/tinycc/)
  2. Unpack it anywhere
  3. Copy `tccApi.lua` to the autorun folder located in the Cheat Engine root directory
