@@ -1,5 +1,5 @@
 function initTcc()
-  autoAssemble("loadLibrary(C:\\tcc\\libtcc.dll)")
+  autoAssemble("loadLibrary(path\\to\\libtcc.dll)")
 end
 
 outputMemory     = 1
