@@ -1,5 +1,11 @@
+local tccPath = ""
+
+if tccPath == "" then
+  tccPath = "C:\\tcc\\libtcc.dll"
+end
+
 function initTcc()
-  autoAssemble("loadLibrary(path\\to\\libtcc.dll)")
+  autoAssemble("loadLibrary(" .. tccPath ..")")
 end
 
 outputMemory     = 1
@@ -92,7 +98,7 @@ function Tcc:addLibrary(libraryname)
   executeCodeEx(1, nil, "libtcc.tcc_add_library", self.state, libraryname)
 end
 
-function addSymbol(name, val)
+function Tcc:addSymbol(name, val)
   return executeCodeEx(1, nil, "libtcc.tcc_add_symbol", self.state, name, val)
 end
 
