@@ -1,11 +1,11 @@
-local tccPath64 = "C:\\tcc\\libtcc.dll"
-local tccPath32 = "C:\\tcc32\\libtcc.dll"
+local tccPath64 = ""
+local tccPath32 = ""
  
 function initTcc()
   if targetIs64Bit() == true then
-    autoAssemble("loadLibrary(" .. tccPath64 ..")")
+    autoAssemble("loadLibrary(" .. tccPath64 .. ")")
   elseif targetIs64Bit() == false then
-    autoAssemble("loadLibrary(" .. tccPath32 ..")")
+    autoAssemble("loadLibrary(" .. tccPath32 .. ")")
   end
 end
 
