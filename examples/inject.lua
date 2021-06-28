@@ -21,6 +21,7 @@ int addInt(int a, int b)
 -- in this case main is just 2k
 -- uninitialized bytes i allocated
 -- somewhere in memory
+-- `1` just puts it somewhere randomly
 tcc:relocate(getAddress("main"))
 
 -- `getSymbol` returns address of a given symbol
